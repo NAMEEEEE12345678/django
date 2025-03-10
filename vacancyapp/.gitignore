@@ -9,3 +9,4 @@ db.sqlite3
 # Исключаем файлы IDE
 .vscode/
 .idea/
+myvenv/

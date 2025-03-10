@@ -1,10 +1,13 @@
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from .model import Vacancy
 
-def home_page(request):
-    return HttpResponse("<h4>Это главная страница</h4>")
+def home(request):
+    return render(request, 'home.html')
 
-def about_page(request):
-    return HttpResponse("<h4>О нас</h4>")
+def vacancies_list(request):
+    vacancies = Vacancy.objects.all()
+    return render(request, "post_list.html", {"vacancies"}):
 
-def contact_page(request):
-    return HttpResponse("<h4>Контакты</h4>")
+def vacancy_detail(request, id):
+    vacancy = get_object_or_404(Vacancy, id=id)
+    
